@@ -14,5 +14,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mywebclass/mwc_plugin_wellcome/issues"
+  },
+  "devDependencies":{
+    "mwc_kernel": "git+https://github.com/mywebclass/mwc_kernel.git",
+    "mwc_plugin_hogan_express": "git+https://github.com/mywebclass/mwc_plugin_hogan_express.git"
   }
 }
