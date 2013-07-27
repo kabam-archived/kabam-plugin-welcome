@@ -1,0 +1,18 @@
+{
+  "name": "mwc_plugin_wellcome",
+  "version": "0.0.1",
+  "description": "MWC_kernel plugin to show login screen for anonimus users instead of app pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mywebclass/mwc_plugin_wellcome.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mywebclass/mwc_plugin_wellcome/issues"
+  }
+}
