@@ -4,6 +4,7 @@
   "description": "MWC_kernel plugin to show login screen for anonimus users instead of app pages",
   "main": "index.js",
   "scripts": {
+    "start": "node example/example.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

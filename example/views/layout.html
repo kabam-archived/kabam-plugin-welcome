@@ -13,6 +13,17 @@
     <input type="submit" value="Log Out"/>
 </form>
 </div>
+{{#flash}}
+{{#error}}
+<strong>{{error}}</strong>
+{{/error}}
+{{#success}}
+<strong>{{success}}</strong>
+{{/success}}
+{{#info}}
+<strong>{{info}}</strong>
+{{/info}}
+{{/flash}}
 {{{ yield }}}
 <hr>
 
