@@ -4,6 +4,15 @@
     <title>Please, authorize!</title>
 </head>
 <body>
+<div  style="position: fixed; top: 5px; right: 5px;">
+<form action="/team" method="get">
+    <input type="submit" value="Team">
+</form>
+<form action="/auth/logout" method="post">
+    <input name="_csrf" type="hidden" value="{{csrf}}"/>
+    <input type="submit" value="Log Out"/>
+</form>
+</div>
 {{{ yield }}}
 <hr>
 

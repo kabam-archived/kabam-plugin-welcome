@@ -8,11 +8,34 @@ MWC.usePlugin(require('./../index.js'));
 
 MWC.extendRoutes(function (core) {
   core.app.get('/', function (request, response) {
-    response.json(request.user);
+    response.redirect('/my');
+  });
+
+  core.app.get('/my', function (request, response) {
+    if (request.is('json')) {
+      response.json(request.user)
+    } else {
+      response.render('my', {user: request.user});
+    }
+  });
+
+  core.app.get('/team', function (request, response) {
+    request.MODEL.Users.find({}, function (err, users) {
+      if (err) {
+        throw err;
+      }
+      if (request.is('json')) {
+        response.json(users);
+      } else {
+        response.render('team', {users: users});
+      }
+    });
   });
 });
 MWC.listen();
 
+/*/
+//commit after database is populated
 async.parallel({
   'vodolaz095': function (cb) {
     MWC.MODEL.Users.create({
@@ -21,6 +44,7 @@ async.parallel({
       'apiKey': 'vodolaz095',
       'active': true
     }, cb);
+
   },
   'valmy': function (cb) {
     MWC.MODEL.Users.create({
@@ -65,4 +89,4 @@ async.parallel({
     console.log('password were set')
   })
 });
-
+//*/
