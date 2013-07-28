@@ -1,11 +1,17 @@
 var mwcCore = require('mwc_kernel'),
+  captcha = require('captcha'),
   async = require('async');
+
 //setting up the config
 var MWC = new mwcCore(require('./config.json')[(process.env.NODE_ENV) ? (process.env.NODE_ENV) : 'development']);
 
 MWC.usePlugin(require('mwc_plugin_hogan_express'));
-MWC.usePlugin(require('./../index.js'));
 
+MWC.extendMiddlewares(function(core){
+  return captcha({ url: '/captcha.jpg', color:'#0064cd', background: 'rgb(20,30,200)' }); // captcha params
+});
+
+MWC.usePlugin(require('./../index.js'));
 MWC.extendRoutes(function (core) {
   core.app.get('/', function (request, response) {
     response.redirect('/my');

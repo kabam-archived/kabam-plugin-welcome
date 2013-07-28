@@ -7,7 +7,7 @@ Disclaimer
 ===================
 
 This plugin is needed to test in action the passport.js integration to mwc_kernel application.
-Latter, this plugin will be merged to other plugins or deleted.
+Later, this plugin will be merged to other plugins or deleted.
 
 Works
 ===================
@@ -21,6 +21,13 @@ Do not works for now
 ===================
 
 Facebook - because of ideological reasons i cannot register there (Anatolij).
-LinkedIn - not implemented
+LinkedIn - not tested
 Hash
 Custom header (for iOS applications)
+
+Captcha integration
+===================
+First, we need to install node-canvas. For me it was tricky first time and i wrote a wiki about it(fedora) -
+[https://github.com/learnboost/node-canvas/wiki](https://github.com/learnboost/node-canvas/wiki)
+
+
