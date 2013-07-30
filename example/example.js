@@ -5,7 +5,20 @@ var mwcCore = require('mwc_kernel'),
   async = require('async');
 
 //setting up the config
-var MWC = new mwcCore(require('./config.json')[(process.env.NODE_ENV) ? (process.env.NODE_ENV) : 'development']);
+var MWC = new mwcCore({
+  'hostUrl':'http://mwcwelcome.herokuapp.com/',
+  'secret': ((process.env.secret)?(process.env.secret):'lalalala1'),
+  'mongoUrl': process.env.MONGOHQ_URL,
+  'redis': ((process.env.REDISTOGO_URL)?(process.env.REDISTOGO_URL):'redis://greatCornhorio@localhost:6379'),
+  "passport":{
+    "GITHUB_CLIENT_ID":"--insert-github-client-id-here--",
+    "GITHUB_CLIENT_SECRET": "--insert-github-client-secret-here--",
+    "TWITTER_CONSUMER_KEY":"--insert-twitter-consumer-key-here--",
+    "TWITTER_CONSUMER_SECRET": "--insert-twitter-consumer-secret-here--",
+    "FACEBOOK_APP_ID":"--insert-facebook-app-id-here--",
+    "FACEBOOK_APP_SECRET":"--insert-facebook-app-secret-here--"
+  }
+});
 
 MWC.usePlugin(require('mwc_plugin_hogan_express'));
 
@@ -45,60 +58,3 @@ MWC.extendRoutes(function (core) {
   });
 });
 MWC.listen();
-
-/*/
-//commit after database is populated
-async.parallel({
-  'vodolaz095': function (cb) {
-    MWC.MODEL.Users.create({
-      'username': 'vodolaz095',
-      'email': 'ostroumov095@gmail.com',
-      'apiKey': 'vodolaz095',
-      'active': true
-    }, cb);
-
-  },
-  'valmy': function (cb) {
-    MWC.MODEL.Users.create({
-      'username': 'valmy',
-      'email': 'tbudiman@gmail.com',
-      'apiKey': 'valmy',
-      'active': true
-    }, cb);
-  },
-  'muhammadghazali': function (cb) {
-    MWC.MODEL.Users.create({
-      'username': 'muhammadghazali',
-      'email': 'muhammadghazali2480@gmail.com',
-      'apiKey': 'muhammadghazali',
-      'active': true
-    }, cb);
-  },
-  'kaw393939': function (cb) {
-    MWC.MODEL.Users.create({
-      'username': 'kaw393939',
-      'email': 'keith@webizly.com',
-      'apiKey': 'kaw393939',
-      'active': true
-    }, cb);
-  }}, function (err, usersCreated) {
-  if(err) throw err;
-  async.parallel({
-    'pwd4vodolaz095':function(cb){
-      usersCreated.vodolaz095.setPassword('vodolaz095',cb);
-    },
-    'pwd4valmy':function(cb){
-      usersCreated.valmy.setPassword('valmy',cb);
-    },
-    'pwd4muhammadghazali':function(cb){
-      usersCreated.muhammadghazali.setPassword('muhammadghazali',cb);
-    },
-    'pwd4kaw393939':function(cb){
-      usersCreated.kaw393939.setPassword('kaw393939',cb);
-    }
-  },function(err2,passwordSent){
-    if(err2) throw err2;
-    console.log('password were set')
-  })
-});
-//*/
