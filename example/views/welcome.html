@@ -1,67 +1,95 @@
-<table>
-    <tr>
-        <td>
-            <h1>Please, authorize!</h1>
-            <p>Pretend, that this is twitter bootstrap)</p>
-            <form method="post" action="/auth/login">
-                <input type="hidden" name="_csrf" value="{{csrf}}"/>
+<div class="span4">
+    <h1>Sign up!</h1>
 
-                <p>Username or email</p>
+    <form method="post" action="/auth/signup">
+        <input type="hidden" name="_csrf" value="{{csrf}}"/>
 
-                <p><input type="text" name="username" value=""/></p>
+        <div class="control-group">
+            <label class="control-label" for="inputUsername">Username</label>
+            <div class="controls">
+                <input type="text" id="inputUsername" name="username" value="" pattern="^[a-zA-Z0-9_]{3,32}$"/>
+            </div>
+        </div>
 
-                <p>Password</p>
 
-                <p><input type="password" name="password" value=""/></p>
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">Email</label>
+            <div class="controls">
+                <input type="text" name="email" id="inputEmail" placeholder="Email">
+            </div>
+        </div>
 
-                <p><input type="checkbox" name="rememberMe" value="1"/> Remember me</p>
+        <div class="control-group">
+            <label class="control-label" for="inputPassword">Password</label>
+            <div class="controls">
+                <input type="password" name="password" id="inputPassword" placeholder="Password">
+            </div>
+        </div>
+        <div class="control-group">
+            <img src="/captcha.jpg" alt="" title="" class="img-polaroid"/>
+            <label class="control-label" for="inputCaptcha">Enter security code</label>
+            <div class="controls">
+                <input type="text" name="captcha" id="inputCaptcha" placeholder="">
+            </div>
+        </div>
 
-                <p><input type="submit" value="Enter"/></p>
-            </form>
-            {{#useGoogle}}
-            <p><a href="/auth/google">Sign in by google</a></p>
-            {{/useGoogle}}
+        <div class="control-group">
+            <div class="controls">
+                <input type="submit" value="SignUp" class="btn btn-success"/>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="span4">
+    <h1>Already have an account?</h1>
 
-            {{#useGithub}}
-            <p><a href="/auth/github">Sign in by github</a></p>
-            {{/useGithub}}
+    <form method="post" action="/auth/login">
+        <input type="hidden" name="_csrf" value="{{csrf}}"/>
+        <div class="control-group">
+            <label class="control-label" for="inputUsernameLogin">Username</label>
+            <div class="controls">
+                <input type="text" id="inputUsernameLogin" name="username" value="" pattern="^[a-zA-Z0-9_]{3,32}$"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputPasswordLogin">Password</label>
+            <div class="controls">
+                <input type="password" name="password" id="inputPasswordLogin" placeholder="Password">
+            </div>
+        </div>
 
-            {{#useTwitter}}
-            <p><a href="/auth/twitter">Sign in by twitter</a></p>
-            {{/useTwitter}}
+        <div class="control-group">
+            <div class="controls">
+                <label class="checkbox">
+                    <input type="checkbox" name="rememberMe" value="1"/> Remember me
+                </label>
+                <input type="submit" value="SignIn" class="btn btn-success"/>
+            </div>
+        </div>
+    </form>
+    <p><a href="/auth/restoreAccount" class="btn btn-warning">I forgot my password!</a></p>
+    {{#useGoogle}}
+    <p><a href="/auth/google">Sign in by google</a></p>
+    {{/useGoogle}}
 
-            {{#useFacebook}}
-            <p><a href="/auth/facebook">Sign in by facebook</a></p>
-            {{/useFacebook}}
-        </td>
-        <td>
-            <h1>Register</h1>
+    {{#useGithub}}
+    <p><a href="/auth/github">Sign in by github</a></p>
+    {{/useGithub}}
 
-            <form method="post" action="/auth/signup">
-                <input type="hidden" name="_csrf" value="{{csrf}}"/>
+    {{#useTwitter}}
+    <p><a href="/auth/twitter">Sign in by twitter</a></p>
+    {{/useTwitter}}
 
-                <p>Username</p>
-
-                <p><input type="text" name="username" value="" pattern="^[a-zA-Z0-9_]{3,32}$"/></p>
-
-                <p>Email</p>
-
-                <p><input type="text" name="email" value=""/></p>
-
-                <p>Password</p>
-
-                <p><input type="password" name="password" value=""/></p>
-
-                <p><input type="checkbox" name="rememberMe" value="1"/> Remember me</p>
-
-                <p><img src="/captcha.jpg" alt="" title=""/></p>
-
-                <p>Enter security code</p>
-
-                <p><input type="text" name="captcha" value=""/></p>
-
-                <p><input type="submit" value="Enter"/></p>
-            </form>
-        </td>
-    </tr>
-</table>
+    {{#useFacebook}}
+    <p><a href="/auth/facebook">Sign in by facebook</a></p>
+    {{/useFacebook}}
+</div>
+<div class="span4">
+    <h1>Rules</h1>
+    <ol>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+        <li>Four</li>
+    </ol>
+</div>

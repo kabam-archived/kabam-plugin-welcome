@@ -1,5 +1,7 @@
 var mwcCore = require('mwc_kernel'),
   captcha = require('captcha'),
+  express = require('express'),
+  path = require('path'),
   async = require('async');
 
 //setting up the config
@@ -9,6 +11,10 @@ MWC.usePlugin(require('mwc_plugin_hogan_express'));
 
 MWC.extendMiddlewares(function(core){
   return captcha({ url: '/captcha.jpg', color:'#0064cd', background: 'rgb(20,30,200)' }); // captcha params
+});
+
+MWC.extendMiddlewares(function(core){
+  return express.static(path.join(__dirname, 'public'));
 });
 
 MWC.usePlugin(require('./../index.js'));

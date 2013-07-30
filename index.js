@@ -8,6 +8,7 @@ exports.extendMiddlewares = function (core) {
           next();
         } else {
           var parameters={
+            'title':'Please, authorize!',
             'useGoogle': true,
             'useGithub': (core.config.passport && core.config.passport.GITHUB_CLIENT_ID && core.config.passport.GITHUB_CLIENT_SECRET),
             'useTwitter':(core.config.passport && core.config.passport.TWITTER_CONSUMER_KEY && core.config.passport.TWITTER_CONSUMER_SECRET),

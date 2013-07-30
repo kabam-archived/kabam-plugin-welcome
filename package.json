@@ -18,6 +18,7 @@
   },
   "devDependencies":{
     "async":"*",
+    "express":"3.x.x",
     "captcha":"git+https://github.com/vodolaz095/node-captcha.git",
     "mwc_kernel": "git+https://github.com/mywebclass/mwc_kernel.git",
     "mwc_plugin_hogan_express": "git+https://github.com/mywebclass/mwc_plugin_hogan_express.git",
