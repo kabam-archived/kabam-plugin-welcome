@@ -6,10 +6,12 @@ var mwcCore = require('mwc_kernel'),
 
 //setting up the config
 var MWC = new mwcCore({
-  'hostUrl':'http://mwcwelcome.herokuapp.com/',
-  'secret': ((process.env.secret)?(process.env.secret):'lalalala1'),
-  'mongoUrl': process.env.MONGOHQ_URL,
+  'hostUrl':'http://vvv.msk0.ru/',//'http://mwcwelcome.herokuapp.com/',
+  'secret': ((process.env.secret)?(process.env.secret):'lAAAAalalala1'),
+  'mongoUrl':((process.env.MONGOHQ_URL)?(process.env.MONGOHQ_URL):'mongodb://heroku:greatCornhorio@dharma.mongohq.com:10053/app16189891'),
+//  'mongoUrl': process.env.MONGOHQ_URL,
   'redis': ((process.env.REDISTOGO_URL)?(process.env.REDISTOGO_URL):'redis://greatCornhorio@localhost:6379'),
+  'emailConfig':((process.env.emailConfig)?(process.env.emailConfig):'mywebclass@webizly.com:greatCornhorio'),
   "passport":{
     "GITHUB_CLIENT_ID":"--insert-github-client-id-here--",
     "GITHUB_CLIENT_SECRET": "--insert-github-client-secret-here--",
@@ -20,7 +22,9 @@ var MWC = new mwcCore({
   }
 });
 
+MWC.usePlugin(require('mwc_plugin_notify_by_email'));
 MWC.usePlugin(require('mwc_plugin_hogan_express'));
+
 
 MWC.extendMiddlewares(function(core){
   return captcha({ url: '/captcha.jpg', color:'#0064cd', background: 'rgb(20,30,200)' }); // captcha params
@@ -58,3 +62,7 @@ MWC.extendRoutes(function (core) {
   });
 });
 MWC.listen();
+
+MWC.on('notify',function(message){
+  console.log(message);
+});
