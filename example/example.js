@@ -8,13 +8,13 @@ var mwcCore = require('mwc_kernel'),
 var MWC = new mwcCore({
   'hostUrl':'http://vvv.msk0.ru/',//'http://mwcwelcome.herokuapp.com/',
   'secret': ((process.env.secret)?(process.env.secret):'lAAAAalalala1'),
-  'mongoUrl':((process.env.MONGOHQ_URL)?(process.env.MONGOHQ_URL):'mongodb://heroku:greatCornhorio@dharma.mongohq.com:10053/app16189891'),
+  'mongoUrl':((process.env.MONGOHQ_URL)?(process.env.MONGOHQ_URL):'mongodb://heroku:83545694fec0db031dc9955f874af3a5@dharma.mongohq.com:10053/app16189891'),
 //  'mongoUrl': process.env.MONGOHQ_URL,
   'redis': ((process.env.REDISTOGO_URL)?(process.env.REDISTOGO_URL):'redis://greatCornhorio@localhost:6379'),
-  'emailConfig':((process.env.emailConfig)?(process.env.emailConfig):'mywebclass@webizly.com:greatCornhorio'),
+  'emailConfig':((process.env.emailConfig)?(process.env.emailConfig):'mywebclass@webizly.com:web$1234'),
   "passport":{
-    "GITHUB_CLIENT_ID":"--insert-github-client-id-here--",
-    "GITHUB_CLIENT_SECRET": "--insert-github-client-secret-here--",
+    "GITHUB_CLIENT_ID":"2673b55b727c2ebb0c93",
+    "GITHUB_CLIENT_SECRET": "74aedc65c9f3aff8250abe9087c30d368566810e",
     "TWITTER_CONSUMER_KEY":"--insert-twitter-consumer-key-here--",
     "TWITTER_CONSUMER_SECRET": "--insert-twitter-consumer-secret-here--",
     "FACEBOOK_APP_ID":"--insert-facebook-app-id-here--",
@@ -37,7 +37,7 @@ MWC.extendMiddlewares(function(core){
 MWC.usePlugin(require('./../index.js'));
 MWC.extendRoutes(function (core) {
   core.app.get('/', function (request, response) {
-    response.redirect('/my');
+    response.render('index',{userAgent:request.headers['user-agent']})
   });
 
   core.app.get('/my', function (request, response) {
