@@ -16,14 +16,17 @@ Works
  - Google
  - Github (with MY github GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET)
  - Twitter (with MY github TWITTER_CONSUMER_KEY and TWITTER_CONSUMER_SECRET)
+ - Hash (account confirmation)
+ - Email notification
 
 Do not works for now
 ===================
 
  - Facebook - because of ideological reasons i cannot register there (Anatolij).
  - LinkedIn - not tested
- - Hash (account confirmation)
  - Custom header (for iOS applications)
+ - Heroku deployment - because it CANNOT install npm modules from github...
+
 
 Captcha integration
 ===================
