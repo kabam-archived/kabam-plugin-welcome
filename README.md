@@ -1,4 +1,4 @@
-mwc_plugin_wellcome
+mwc_plugin_welcome
 ===================
 
 Plugin to show login screen when user is not logined, and show other routes when logined
