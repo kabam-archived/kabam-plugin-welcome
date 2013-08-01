@@ -22,6 +22,9 @@ var MWC = new mwcCore({
   }
 });
 
+MWC.extendApp(function(core){
+  MWC.app.locals.delimiters = '[[ ]]';
+});
 MWC.usePlugin(require('mwc_plugin_notify_by_email'));
 MWC.usePlugin(require('mwc_plugin_hogan_express'));
 
@@ -53,7 +56,7 @@ MWC.extendRoutes(function (core) {
       if (err) {
         throw err;
       }
-      if (request.is('json')) {
+      if (request.query['json']) {
         response.json(users);
       } else {
         response.render('team', {users: users});
@@ -66,3 +69,4 @@ MWC.listen();
 MWC.on('notify',function(message){
   console.log(message);
 });
+

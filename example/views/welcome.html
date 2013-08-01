@@ -2,7 +2,7 @@
     <h1>Sign up!</h1>
 
     <form method="post" action="/auth/signup">
-        <input type="hidden" name="_csrf" value="{{csrf}}"/>
+        <input type="hidden" name="_csrf" value="[[csrf]]"/>
 
         <div class="control-group">
             <label class="control-label" for="inputUsername">Username</label>
@@ -44,7 +44,7 @@
     <h1>Already have an account?</h1>
 
     <form method="post" action="/auth/login">
-        <input type="hidden" name="_csrf" value="{{csrf}}"/>
+        <input type="hidden" name="_csrf" value="[[csrf]]"/>
         <div class="control-group">
             <label class="control-label" for="inputUsernameLogin">Username</label>
             <div class="controls">
@@ -68,21 +68,21 @@
         </div>
     </form>
     <p><a href="/auth/restoreAccount" class="btn btn-warning">I forgot my password!</a></p>
-    {{#useGoogle}}
+    [[#useGoogle]]
     <p><a href="/auth/google">Sign in by google</a></p>
-    {{/useGoogle}}
+    [[/useGoogle]]
 
-    {{#useGithub}}
+    [[#useGithub]]
     <p><a href="/auth/github">Sign in by github</a></p>
-    {{/useGithub}}
+    [[/useGithub]]
 
-    {{#useTwitter}}
+    [[#useTwitter]]
     <p><a href="/auth/twitter">Sign in by twitter</a></p>
-    {{/useTwitter}}
+    [[/useTwitter]]
 
-    {{#useFacebook}}
+    [[#useFacebook]]
     <p><a href="/auth/facebook">Sign in by facebook</a></p>
-    {{/useFacebook}}
+    [[/useFacebook]]
 </div>
 <div class="span4">
     <h1>Rules</h1>
