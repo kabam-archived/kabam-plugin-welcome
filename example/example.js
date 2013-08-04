@@ -52,7 +52,7 @@ MWC.extendRoutes(function (core) {
   });
 
   core.app.get('/team', function (request, response) {
-    request.MODEL.Users.find({}, function (err, users) {
+    request.model.Users.find({}, function (err, users) {
       if (err) {
         throw err;
       }
