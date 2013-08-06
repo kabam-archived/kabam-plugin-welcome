@@ -5,7 +5,7 @@ var mwcCore = require('mwc_kernel'),
   async = require('async');
 
 //setting up the config
-var MWC = new mwcCore({
+var MWC = mwcCore({
   'hostUrl':'http://vvv.msk0.ru/',//'http://mwcwelcome.herokuapp.com/',
   'secret': ((process.env.secret)?(process.env.secret):'lAAAAalalala1'),
   'mongoUrl':((process.env.MONGOHQ_URL)?(process.env.MONGOHQ_URL):'mongodb://heroku:83545694fec0db031dc9955f874af3a5@dharma.mongohq.com:10053/app16189891'),
@@ -13,8 +13,8 @@ var MWC = new mwcCore({
   'redis': ((process.env.REDISTOGO_URL)?(process.env.REDISTOGO_URL):'redis://greatCornhorio@localhost:6379'),
   'emailConfig':((process.env.emailConfig)?(process.env.emailConfig):'mywebclass@webizly.com:web$1234'),
   "passport":{
-    "GITHUB_CLIENT_ID":"2673b55b727c2ebb0c93",
-    "GITHUB_CLIENT_SECRET": "74aedc65c9f3aff8250abe9087c30d368566810e",
+    "GITHUB_CLIENT_ID":"somekey",
+    "GITHUB_CLIENT_SECRET": "somesecret",
     "TWITTER_CONSUMER_KEY":"--insert-twitter-consumer-key-here--",
     "TWITTER_CONSUMER_SECRET": "--insert-twitter-consumer-secret-here--",
     "FACEBOOK_APP_ID":"--insert-facebook-app-id-here--",
@@ -23,7 +23,7 @@ var MWC = new mwcCore({
 });
 
 MWC.extendApp(function(core){
-  MWC.app.locals.delimiters = '[[ ]]';
+  core.app.locals.delimiters = '[[ ]]';
 });
 MWC.usePlugin(require('mwc_plugin_notify_by_email'));
 MWC.usePlugin(require('mwc_plugin_hogan_express'));
@@ -64,7 +64,7 @@ MWC.extendRoutes(function (core) {
     });
   });
 });
-MWC.listen();
+MWC.start();
 
 MWC.on('notify',function(message){
   console.log(message);
