@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script type="text/javascript">
+        function userList($scope,$http){
+            $http.get('/team?json=true')
+                    .success(function(data) {
+                        console.log(data);
+                        $scope.users=data;
+                    })
+                    .error(function(err){
+                        console.log(err);
+                    });
+        }
+    </script>
+</head>
+<body>
+<h2>Users</h2>
+<p>Search: <input ng-model="query"></p>
+<table ng-controller='userList'>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr ng-repeat='user in users  | filter:query | orderBy:"username"'>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+        </tr>
+
+    </tbody>
+</table>
+<div>{{ users | json }}</div>
+</body>
+</html>
