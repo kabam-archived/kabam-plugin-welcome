@@ -10,7 +10,11 @@
         });
         socket.on('pong',function(data){
             console.log(data);
-        })
+        });
+
+        setInterval(function(){
+            socket.emit('ping','lalala');
+        },3000);
     </script>
 </head>
 <body>
