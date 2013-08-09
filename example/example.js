@@ -22,7 +22,7 @@ var MWC = mwcCore({
 MWC.extendApp(function(core){
   core.app.locals.delimiters = '[[ ]]';
 });
-//MWC.usePlugin(require('mwc_plugin_notify_by_email'));
+MWC.usePlugin(require('mwc_plugin_notify_by_email'));
 MWC.usePlugin(require('mwc_plugin_hogan_express'));
 
 
@@ -63,7 +63,4 @@ MWC.extendRoutes(function (core) {
 });
 MWC.start();
 
-MWC.on('notify',function(message){
-  console.log(message);
-});
-
+MWC.on('notify:email',console.log);
