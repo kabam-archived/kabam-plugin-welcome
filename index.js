@@ -1,4 +1,4 @@
-exports.extendMiddleware = function (core) {
+exports.middleware = function (core) {
   return function (request, response, next) {
     if (request.user) {
       next();

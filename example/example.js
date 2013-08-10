@@ -44,7 +44,7 @@ MWC.extendRoutes(function (core) {
     if (request.is('json')) {
       response.json(request.user)
     } else {
-      response.render('my', {user: request.user});
+      response.render('my');
     }
   });
 
