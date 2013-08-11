@@ -7,7 +7,7 @@
         <div class="control-group">
             <label class="control-label" for="inputUsername">Username</label>
             <div class="controls">
-                <input type="text" id="inputUsername" name="username" value="" pattern="^[a-zA-Z0-9_]{3,32}$"/>
+                <input class="act" type="text" id="inputUsername" name="username" value="" pattern="^[a-zA-Z0-9_]{3,32}$" placeholder="myUserName"/>
             </div>
         </div>
 
@@ -15,14 +15,14 @@
         <div class="control-group">
             <label class="control-label" for="inputEmail">Email</label>
             <div class="controls">
-                <input type="text" name="email" id="inputEmail" placeholder="Email">
+                <input class="act" type="text" name="email" id="inputEmail" placeholder="MyEmail@example.org">
             </div>
         </div>
 
         <div class="control-group">
             <label class="control-label" for="inputPassword">Password</label>
             <div class="controls">
-                <input type="password" name="password" id="inputPassword" placeholder="Password">
+                <input type="password" name="password" id="inputPassword" placeholder="MyPa$$word">
             </div>
         </div>
         <div class="control-group">
@@ -48,7 +48,7 @@
         <div class="control-group">
             <label class="control-label" for="inputUsernameLogin">Username</label>
             <div class="controls">
-                <input type="text" id="inputUsernameLogin" name="username" value="" pattern="^[a-zA-Z0-9_]{3,32}$"/>
+                <input type="text" id="inputUsernameLogin" name="username" value="" pattern="^[a-zA-Z0-9_]{3,32}$" placeholder="myUserName"/>
             </div>
         </div>
         <div class="control-group">
@@ -93,3 +93,56 @@
         <li>Four</li>
     </ol>
 </div>
+<script type="text/javascript">
+    var e=$('#inputEmail').parent().parent();
+    var u=$('#inputUsername').parent().parent();
+
+     $('.act').bind('change click keyup',function(){
+        $.post('/auth/isBusy',{
+            'username': $('#inputUsername').val(),
+            'email':$('#inputEmail').val(),
+            '_csrf': "[[csrf]]"
+        },function(data){
+            e.removeClass('error');
+            e.removeClass('warning');
+            e.removeClass('success');
+
+            u.removeClass('error');
+            u.removeClass('warning');
+            u.removeClass('success');
+
+            if(data.username === 'OK'){
+                u.addClass('success');
+                u.attr('title','This is a good username!');
+            }
+            if(data.username === 'USERNAME_BUSY'){
+                u.addClass('warning');
+                u.attr('title','Username is busy, use another one!');
+            }
+            if(data.username === 'BAD_USERNAME'){
+                u.addClass('error');
+                u.attr('title','Username has bad value, use another one!');
+            }
+//            if(data.username === 'EMPTY_USERNAME'){
+//                u.addClass('error');
+//            }
+
+            if(data.email === 'OK'){
+                e.addClass('success');
+                e.attr('title','This is a good email address!');
+            }
+            if(data.email === 'EMAIL_BUSY'){
+                e.addClass('warning');
+                e.attr('title','Email address is busy, use another one!');
+            }
+            if(data.email === 'BAD_EMAIL'){
+                e.addClass('error');
+                e.attr('title','Email address has bad value, use another one!');
+            }
+//            if(data.email === 'EMPTY_EMAIL'){
+//                e.addClass('error');
+//            }
+
+        },"json");
+    });
+</script>
