@@ -1,16 +1,28 @@
-//check if template exists
+var captcha = require('captcha');
 
-
-
-exports.middleware = function (core) {
+exports.name = 'mwc_plugin_welcome';
+exports.middleware = [function (core) {
   try {
-    core.app.render('welcome/verifyEmail',function(err,html){
-      if(err) throw err;
+    core.app.render('welcome/verifyEmail', function (err, html) {
+      if (err) {
+        throw err;
+      }
     });
+    core.app.render('welcome/completeProfile', function (err, html) {
+      if (err) {
+        throw err;
+      }
+    });
+    core.app.render('welcome/welcome', function (err, html) {
+      if (err) {
+        throw err;
+      }
+    });
+
   }
   catch (e) {
     if (e.message === 'No default engine was specified and no extension was provided.') {
-      throw new Error('Error: Template engine is not installed! Details - https://github.com/mywebclass/mwc_plugin_wellcome!');
+      throw new Error('Error: Template engine is not installed or templates are missing! Details - https://github.com/mywebclass/mwc_plugin_wellcome!');
     } else {
       throw e;
     }
@@ -49,4 +61,40 @@ exports.middleware = function (core) {
       }
     }
   };
+},
+  function (core) {
+    return captcha({ url: '/auth/captcha.jpg', color: '#0064cd', background: 'rgb(20,30,200)', codeLength: 4 }); // captcha params
+  }
+];
+
+exports.routes = function (core) {
+  core.app.get('/auth/restoreAccount', function (request, response) {
+    if (request.user) {
+      response.redirect('/');
+    } else {
+      response.render('welcome/restoreAccount', {title: 'Restore account'});
+    }
+  });
+  core.app.get('/auth/resetPassword', function (request, response) {
+    if (request.user) {
+      response.redirect('/');
+    } else {
+      if (request.query.key) {
+        request.model.Users.findOneByApiKey(request.query.key, function (err, userFound) {
+          if(err) throw err;
+          if (userFound) {
+            response.render('welcome/resetPassword', {
+              title: 'Reset password',
+              apiKey : userFound.apiKey
+            });
+          } else {
+            response.send(404);
+          }
+        });
+      } else {
+        response.send(404);
+      }
+    }
+  });
+
 };

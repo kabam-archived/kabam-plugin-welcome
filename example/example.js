@@ -1,5 +1,4 @@
 var mwcCore = require('mwc_kernel'),
-  captcha = require('captcha'),
   express = require('express'),
   path = require('path'),
   async = require('async');
@@ -8,6 +7,7 @@ var mwcCore = require('mwc_kernel'),
 var MWC = mwcCore({
   'hostUrl':'http://vvv.msk0.ru/',//'http://mwcwelcome.herokuapp.com/',
   'secret': ((process.env.secret)?(process.env.secret):'lAAAAalalala1'),
+  'mongoUrl':'mongodb://localhost/mwc_dev',
   'emailConfig':((process.env.emailConfig)?(process.env.emailConfig):'myemail@gmail.com:1234567'),
   "passport":{
     "GITHUB_CLIENT_ID":"--insert-github-client-id-here--",
@@ -24,11 +24,6 @@ MWC.extendApp(function(core){
 });
 MWC.usePlugin(require('mwc_plugin_notify_by_email'));
 MWC.usePlugin(require('mwc_plugin_hogan_express'));
-
-
-MWC.extendMiddleware(function(core){
-  return captcha({ url: '/captcha.jpg', color:'#0064cd', background: 'rgb(20,30,200)' }); // captcha params
-});
 
 MWC.extendMiddleware(function(core){
   return express.static(path.join(__dirname, 'public'));

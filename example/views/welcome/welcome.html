@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="control-group">
-            <img src="/captcha.jpg" alt="" title="" class="img-polaroid"/>
+            <img src="/auth/captcha.jpg" alt="" title="" class="img-polaroid"/>
             <label class="control-label" for="inputCaptcha">Enter security code</label>
             <div class="controls">
                 <input type="text" name="captcha" id="inputCaptcha" placeholder="">
@@ -68,10 +68,11 @@
                     <input type="checkbox" name="rememberMe" value="1"/> Remember me
                 </label>
                 <input type="submit" value="SignIn" class="btn btn-success"/>
+                <a href="/auth/restoreAccount" class="btn btn-warning">I forgot my password!</a>
             </div>
         </div>
     </form>
-    <p><a href="/auth/restoreAccount" class="btn btn-warning">I forgot my password!</a></p>
+    <hr>
     [[#useGoogle]]
     <p><a href="/auth/google">Sign in by google</a></p>
     [[/useGoogle]]
