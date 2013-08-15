@@ -10,8 +10,8 @@ var MWC = mwcCore({
   'mongoUrl':'mongodb://localhost/mwc_dev',
   'emailConfig':((process.env.emailConfig)?(process.env.emailConfig):'myemail@gmail.com:1234567'),
   "passport":{
-    "GITHUB_CLIENT_ID":"--insert-github-client-id-here--",
-    "GITHUB_CLIENT_SECRET": "--insert-github-client-secret-here--",
+    "GITHUB_CLIENT_ID":"2673b55b727c2ebb0c93",
+    "GITHUB_CLIENT_SECRET": "74aedc65c9f3aff8250abe9087c30d368566810e",
     "TWITTER_CONSUMER_KEY":"--insert-twitter-consumer-key-here--",
     "TWITTER_CONSUMER_SECRET": "--insert-twitter-consumer-secret-here--",
     "FACEBOOK_APP_ID":"--insert-facebook-app-id-here--",
@@ -24,6 +24,8 @@ MWC.extendApp(function(core){
 });
 MWC.usePlugin(require('mwc_plugin_notify_by_email'));
 MWC.usePlugin(require('mwc_plugin_hogan_express'));
+MWC.usePlugin(require('mwc_plugin_my_profile'));
+
 
 MWC.extendMiddleware(function(core){
   return express.static(path.join(__dirname, 'public'));
