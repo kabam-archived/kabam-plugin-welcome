@@ -25,11 +25,6 @@ MWC.usePlugin(require('mwc_plugin_notify_by_email'));
 MWC.usePlugin(require('mwc_plugin_hogan_express'));
 MWC.usePlugin(require('mwc_plugin_my_profile'));
 
-
-MWC.extendMiddleware(function(core){
-  return express.static(path.join(__dirname, 'public'));
-});
-
 MWC.usePlugin(require('./../index.js'));
 MWC.extendRoutes(function (core) {
   core.app.get('/', function (request, response) {
