@@ -1,7 +1,6 @@
 var mwcCore = require('mwc_kernel'),
   express = require('express'),
-  path = require('path'),
-  async = require('async');
+  path = require('path');
 
 //setting up the config
 var MWC = mwcCore({
