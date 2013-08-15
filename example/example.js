@@ -34,15 +34,7 @@ MWC.extendMiddleware(function(core){
 MWC.usePlugin(require('./../index.js'));
 MWC.extendRoutes(function (core) {
   core.app.get('/', function (request, response) {
-    response.render('index',{userAgent:request.headers['user-agent']})
-  });
-
-  core.app.get('/my', function (request, response) {
-    if (request.is('json')) {
-      response.json(request.user)
-    } else {
-      response.render('my');
-    }
+    response.render('index',{userAgent:request.headers['user-agent'], title: 'Welcome!'})
   });
 
   core.app.get('/team', function (request, response) {

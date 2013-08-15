@@ -35,12 +35,12 @@
             <tr>
                 <th><label for="pwd1"><b>Set new password</b></label></th>
                 <td>
-                    <input id="pwd1" type="password" name="password1">
+                    <input id="pwd1" type="password" name="password1"/>
                 </td>
             </tr>
             <tr>
                 <th><label for="pwd2"><b>Retype new password</b></label></th>
-                <td><input id="pwd2" type="password" name="password2"></td>
+                <td><input id="pwd2" type="password" name="password2"/></td>
             </tr>
             <tr>
                 <th>Roles</th>
@@ -60,6 +60,27 @@
     </form>
 </div>
 <script type="text/javascript">
-
+    var p1 = $('#pwd1'),
+      p2 = $('#pwd2');
+    $('input[type=password]').bind('change click keyup',function(){
+        if(p1.val() || p2.val()){
+            if(p1.val() === p2.val()){
+                p1.parent().parent().removeClass('error');
+                p2.parent().parent().removeClass('error');
+                p1.parent().parent().addClass('success');
+                p2.parent().parent().addClass('success');
+            } else {
+                p1.parent().parent().addClass('error');
+                p2.parent().parent().addClass('error');
+                p1.parent().parent().removeClass('success');
+                p2.parent().parent().removeClass('success');
+            }
+        } else {
+            p1.parent().parent().removeClass('error');
+            p2.parent().parent().removeClass('error');
+            p1.parent().parent().removeClass('success');
+            p2.parent().parent().removeClass('success');
+        }
+    });
 </script>
 [[/myself]]
