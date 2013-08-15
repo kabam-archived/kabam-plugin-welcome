@@ -10,9 +10,9 @@ var MWC = mwcCore({
   'emailConfig':((process.env.emailConfig)?(process.env.emailConfig):'myemail@gmail.com:1234567'),
   "passport":{
     "GITHUB_CLIENT_ID":"2673b55b727c2ebb0c93",
-    "GITHUB_CLIENT_SECRET": "74aedc65c9f3aff8250abe9087c30d368566810e",
-    "TWITTER_CONSUMER_KEY":"--insert-twitter-consumer-key-here--",
-    "TWITTER_CONSUMER_SECRET": "--insert-twitter-consumer-secret-here--",
+    "GITHUB_CLIENT_SECRET": "f240f924bede73eae7c01174bb5b006cadbea81b",
+    "TWITTER_CONSUMER_KEY":"NMVn0shzgqdXAf7Wxlxuyw",
+    "TWITTER_CONSUMER_SECRET": "FiDa0uuvXaW4MIg8DP3ErC9ERUA3HAY3nKauKp0VyA",
     "FACEBOOK_APP_ID":"--insert-facebook-app-id-here--",
     "FACEBOOK_APP_SECRET":"--insert-facebook-app-secret-here--"
   }
