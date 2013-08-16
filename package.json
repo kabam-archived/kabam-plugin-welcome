@@ -20,9 +20,11 @@
   "bugs": {
     "url": "https://github.com/mywebclass/mwc_plugin_welcome/issues"
   },
+  "dependencies":{
+    "captcha":"git+https://github.com/vodolaz095/node-captcha.git",
+  },
   "devDependencies":{
     "express":"3.x.x",
-    "captcha":"git+https://github.com/vodolaz095/node-captcha.git",
     "mwc_kernel": "git+https://github.com/mywebclass/mwc_kernel.git",
     "mwc_plugin_hogan_express": "git+https://github.com/mywebclass/mwc_plugin_hogan_express.git",
     "mwc_plugin_notify_by_email":"git+https://github.com/mywebclass/mwc_plugin_notify_by_email.git",
