@@ -21,7 +21,7 @@
     "url": "https://github.com/mywebclass/mwc_plugin_welcome/issues"
   },
   "dependencies":{
-    "captcha":"git+https://github.com/vodolaz095/node-captcha.git",
+    "captcha":"git+https://github.com/vodolaz095/node-captcha.git"
   },
   "devDependencies":{
     "express":"3.x.x",
