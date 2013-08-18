@@ -1,4 +1,4 @@
-mwc_plugin_welcome
+kabam-plugin-welcome
 ===================
 
 Plugin to show login screen when user is not logined, and show other routes when logined

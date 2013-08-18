@@ -1,6 +1,6 @@
 var captcha = require('captcha');
 
-exports.name = 'mwc_plugin_welcome';
+exports.name = 'kabam-plugin-welcome';
 exports.middleware = [function (core) {
   try {
     core.app.render('welcome/verifyEmail', function (err, html) {

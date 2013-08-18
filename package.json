@@ -1,5 +1,5 @@
 {
-  "name": "mwc_plugin_welcome",
+  "name": "kabam-plugin-welcome",
   "version": "0.0.1",
   "description": "MWC_kernel plugin to show login screen for anonimus users instead of app pages",
   "main": "index.js",
@@ -13,21 +13,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mywebclass/mwc_plugin_welcome.git"
+    "url": "git://github.com/mykabam/kabam-plugin-welcome.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mywebclass/mwc_plugin_welcome/issues"
+    "url": "https://github.com/mykabam/kabam-plugin-welcome/issues"
   },
   "dependencies":{
     "captcha":"git+https://github.com/vodolaz095/node-captcha.git"
   },
   "devDependencies":{
-    "express":"3.x.x",
-    "mwc_kernel": "git+https://github.com/mywebclass/mwc_kernel.git",
-    "mwc_plugin_hogan_express": "git+https://github.com/mywebclass/mwc_plugin_hogan_express.git",
-    "mwc_plugin_notify_by_email":"git+https://github.com/mywebclass/mwc_plugin_notify_by_email.git",
-    "mwc_plugin_my_profile":"git+https://github.com/mywebclass/mwc_plugin_my_profile.git"
+    "kabam-kernel": "git+https://github.com/mykabam/kabam-kernel.git",
+    "kabam-plugin-hogan": "git+https://github.com/mykabam/kabam-plugin-hogan.git",
+    "kabam-plugin-notify-email":"git+https://github.com/mykabam/kabam-plugin-notify-email.git",
+    "kabam-plugin-my-profile":"git+https://github.com/mykabam/kabam-plugin-my-profile.git"
   }
 }

@@ -1,6 +1,4 @@
-var mwcCore = require('mwc_kernel'),
-  express = require('express'),
-  path = require('path');
+var mwcCore = require('kabam-kernel');
 
 //setting up the config
 var MWC = mwcCore({
@@ -21,9 +19,9 @@ var MWC = mwcCore({
 MWC.extendApp(function(core){
   core.app.locals.delimiters = '[[ ]]';
 });
-MWC.usePlugin(require('mwc_plugin_notify_by_email'));
-MWC.usePlugin(require('mwc_plugin_hogan_express'));
-MWC.usePlugin(require('mwc_plugin_my_profile'));
+MWC.usePlugin(require('kabam-plugin-notify-email'));
+MWC.usePlugin(require('kabam-plugin-hogan'));
+MWC.usePlugin(require('kabam-plugin-my-profile'));
 
 MWC.usePlugin(require('./../index.js'));
 MWC.extendRoutes(function (core) {
