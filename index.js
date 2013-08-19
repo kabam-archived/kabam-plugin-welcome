@@ -38,14 +38,21 @@ exports.middleware = [function (core) {
         } else {
           if (request.user && !request.user.emailVerified) {
             response.status(403);
-            response.render('welcome/verifyEmail');
+            response.render('welcome/verifyEmail',{'title':"Verify your email"});
             return;
           }
           if (request.user && !request.user.profileComplete) {
             response.status(403);
-            response.render('welcome/completeProfile');
+            response.render('welcome/completeProfile',{'title':"Complete profile"});
             return;
           }
+
+          if (request.user && request.user.isBanned) {
+            response.status(403);
+            response.render('welcome/banned',{'title':"Ban"});
+            return;
+          }
+
           var parameters = {
             'title': 'Please, authorize!',
             'useGoogle': true,
