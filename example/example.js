@@ -16,9 +16,6 @@ var MWC = mwcCore({
   }
 });
 
-MWC.extendApp(function(core){
-  core.app.locals.delimiters = '[[ ]]';
-});
 MWC.usePlugin(require('kabam-plugin-notify-email'));
 MWC.usePlugin(require('kabam-plugin-hogan'));
 MWC.usePlugin(require('kabam-plugin-my-profile'));
