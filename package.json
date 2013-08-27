@@ -53,6 +53,13 @@
     "kabam-kernel": "git+https://github.com/mykabam/kabam-kernel.git",
     "kabam-plugin-hogan": "git+https://github.com/mykabam/kabam-plugin-hogan.git",
     "kabam-plugin-notify-email":"git+https://github.com/mykabam/kabam-plugin-notify-email.git",
-    "kabam-plugin-my-profile":"git+https://github.com/mykabam/kabam-plugin-my-profile.git"
+    "kabam-plugin-my-profile":"git+https://github.com/mykabam/kabam-plugin-my-profile.git",
+    "grunt": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-ngdoc": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-ngdocs": "*",
+    "grunt-contrib-clean": "*"
   }
 }
